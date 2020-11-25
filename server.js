@@ -1,6 +1,5 @@
 var express = require("express");
 var path = require("path");
-
 var apiData = require("./db/db.json");
 
 var app = express();
@@ -9,7 +8,7 @@ var PORT = process.env.PORT || 8080;
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.static('public'));
 
 
 app.get("/notes", function(req, res) {
@@ -22,17 +21,8 @@ app.get("/api/notes", function(req, res) {
 
 app.post("/api/notes", function(req, res) {
 
-    var newNote = req.body;
-
-    // Using a RegEx Pattern to remove spaces from newCharacter
-    // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-    newNote.routeName = newNote.name.replace(/\s+/g, "").toLowerCase();
-
-    console.log(newNote);
-
-    db.push(newNote);
-
-    res.json(newNote);
+    apiData.push(req.body);
+    res.json(true);
 });
 
   // If no matching route is found default to home
