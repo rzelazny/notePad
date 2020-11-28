@@ -22,7 +22,14 @@ app.get("/api/notes", function(req, res) {
 app.post("/api/notes", function(req, res) {
 
     apiData.push(req.body);
-    res.json(true);
+    res.json(apiData);
+});
+
+app.delete("/api/notes/:id", function(req, res) {
+
+    const id = req.params.id;
+    apiData.splice(id, 1);
+    res.json(apiData);
 });
 
   // If no matching route is found default to home
