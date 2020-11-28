@@ -30,10 +30,13 @@ app.get("/api/notes/:id", function(req, res) {
 //save current note to db.json
 app.post("/api/notes", function(req, res) {
 
+    //get title and text from the request
+    const {body: {title, text}} = req;
+
     let newNote = {
         "id": apiData.length + 1,
-        "title": req.body.title,
-        "text": req.body.text
+        "title": title,
+        "text": text
     }
 
     apiData.push(newNote);
