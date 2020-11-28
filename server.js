@@ -33,6 +33,13 @@ app.post("/api/notes", function(req, res) {
     res.json(apiData);
 });
 
+//return choosen note from db.json
+app.get("/api/notes/:id", function(req, res) {
+    
+    const id = req.params.id;
+    res.json(apiData[id]);
+});
+
 //delete choosen note from db.json
 app.delete("/api/notes/:id", function(req, res) {
 
