@@ -20,6 +20,13 @@ app.get("/api/notes", function(req, res) {
     res.json(apiData);
 });
 
+//return choosen note from db.json
+app.get("/api/notes/:id", function(req, res) {
+    
+    const id = req.params.id;
+    res.json(apiData[id]);
+});
+
 //save current note to db.json
 app.post("/api/notes", function(req, res) {
 
@@ -33,18 +40,16 @@ app.post("/api/notes", function(req, res) {
     res.json(apiData);
 });
 
-//return choosen note from db.json
-app.get("/api/notes/:id", function(req, res) {
-    
-    const id = req.params.id;
-    res.json(apiData[id]);
-});
-
 //delete choosen note from db.json
 app.delete("/api/notes/:id", function(req, res) {
 
     const id = req.params.id;
     apiData.splice(id, 1);
+
+    //drop the ID by one of all notes above the deleted note to prevent gaps
+    apiData.forEach(note => {
+        if(note.id >= id) note.id -= 1;
+    });
     res.json(apiData);
 });
 
