@@ -31,7 +31,7 @@ app.get("/api/notes/:id", function(req, res) {
 app.post("/api/notes", function(req, res) {
 
     let newNote = {
-        "id": apiData.length,
+        "id": apiData.length + 1,
         "title": req.body.title,
         "text": req.body.text
     }
@@ -43,12 +43,12 @@ app.post("/api/notes", function(req, res) {
 //delete choosen note from db.json
 app.delete("/api/notes/:id", function(req, res) {
 
-    const id = req.params.id;
+    const id = req.params.id - 1;
     apiData.splice(id, 1);
 
     //drop the ID by one of all notes above the deleted note to prevent gaps
     apiData.forEach(note => {
-        if(note.id >= id) note.id -= 1;
+        if(note.id > id) note.id -= 1;
     });
     res.json(apiData);
 });
