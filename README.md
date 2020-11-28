@@ -21,11 +21,11 @@ A note taking app deployed on Heroku. Users can create notes and view or delete 
 This app is currently deployed on heroku: [Note Taker Application](https://notepad-rzelazny.herokuapp.com/) 
 
 ## Usage 
-![Image of Note taker get started](https://github.com/rzelazny/readmeGenerator/blob/main/assets/images/getstarted.png)
+![Image of Note taker get started](https://github.com/rzelazny/notePad/blob/main/assets/images/getstarted.png)
 
 On first visiting the deploted site location, click the get started button to view the main notes page.
 
-![Image of Note taker app](https://github.com/rzelazny/readmeGenerator/blob/main/assets/images/notetaker.png)
+![Image of Note taker app](https://github.com/rzelazny/notePad/blob/main/assets/images/notetaker.png)
 
  Click the new note icon in the upper right to create a new note, or the trash can icon to delete and existing note. After typing a note and giving it a title, the save icon will appear.
 
