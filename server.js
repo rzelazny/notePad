@@ -21,7 +21,13 @@ app.get("/api/notes", function(req, res) {
 
 app.post("/api/notes", function(req, res) {
 
-    apiData.push(req.body);
+    let newNote = {
+        "id": apiData.length,
+        "title": req.body.title,
+        "text": req.body.text
+    }
+
+    apiData.push(newNote);
     res.json(apiData);
 });
 
